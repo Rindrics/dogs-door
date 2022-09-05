@@ -1,0 +1,22 @@
+@startuml
+class Remote {
+    +door: DogDoor
+    +PressButton()
+}
+
+class DogDoor {
+  -open: bool
+  +open()
+  +close()
+  +isOpen(): boolean
+}
+
+class BarkRecognizer {
+   door: DogDoor
+   recognize(string)
+}
+
+Remote --> DogDoor
+BarkRecognizer --> DogDoor
+
+@enduml
