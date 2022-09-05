@@ -10,3 +10,6 @@ not yet
 ### Class Diagram
 ![Class Diagram](http://www.plantuml.com/plantuml/proxy?cache=no&src=https://raw.github.com/Rindrics/dogs-door/main/_docs/class-diagram.txt)
 
+Randy's design:
+![Class Diagram by Randy](http://www.plantuml.com/plantuml/proxy?cache=no&src=https://raw.github.com/Rindrics/dogs-door/main/_docs/class-diagram-randy.txt)
+
