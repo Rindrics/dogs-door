@@ -6,7 +6,8 @@ import (
 )
 
 type DogDoor struct {
-	open bool
+	open        bool
+	allowedBark string
 }
 
 func (dd *DogDoor) Open() {
@@ -23,4 +24,12 @@ func (dd *DogDoor) Close() {
 
 func (dd *DogDoor) IsOpen() bool {
 	return dd.open
+}
+
+func (dd *DogDoor) SetAllowedBark(bark string) {
+	dd.allowedBark = bark
+}
+
+func (dd *DogDoor) GetAllowedBark() string {
+	return dd.allowedBark
 }
