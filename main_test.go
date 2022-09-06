@@ -11,28 +11,44 @@ import (
 )
 
 func TestMain(t *testing.T) {
-	door := &dogdoor.DogDoor{}
-	recognizer := bark_recognizer.BarkRecognizer{Door: door}
+	t.Run("ok", func(t *testing.T) {
+		door := &dogdoor.DogDoor{}
+		recognizer := bark_recognizer.BarkRecognizer{Door: door}
 
-	fmt.Println("Fido starts to bark:")
-	newBark := "woof"
-	door.SetAllowedBark(newBark)
+		fmt.Println("Fido starts to bark:")
+		newBark := "woof"
+		door.SetAllowedBark(newBark)
 
-	if door.GetAllowedBark() != newBark {
-		t.Errorf("bark %v is not registered", newBark)
-	}
-	recognizer.Recognize(newBark)
+		if door.GetAllowedBark() != newBark {
+			t.Errorf("bark %v is not registered", newBark)
+		}
+		recognizer.Recognize(newBark)
 
-	fmt.Println("Fido went out")
+		fmt.Println("Fido went out")
 
-	if door.IsOpen() {
-		t.Error("door still opened")
-	}
+		if door.IsOpen() {
+			t.Error("door still opened")
+		}
 
-	fmt.Println("Fido finished doing something")
+		fmt.Println("Fido finished doing something")
 
-	fmt.Println("Fido starts to bark:")
-	recognizer.Recognize(newBark)
+		fmt.Println("Fido starts to bark:")
+		recognizer.Recognize(newBark)
 
-	fmt.Println("Fido got back to the inside")
+		fmt.Println("Fido got back to the inside")
+	})
+
+	t.Run("ng", func(t *testing.T) {
+		door := &dogdoor.DogDoor{}
+		recognizer := bark_recognizer.BarkRecognizer{Door: door}
+
+		fmt.Println("Fido starts to bark:")
+		newBark := "woof"
+		door.SetAllowedBark(newBark + "foobar")
+
+		if door.GetAllowedBark() == newBark {
+			t.Error("want difference, but same")
+		}
+		recognizer.Recognize(newBark)
+	})
 }
