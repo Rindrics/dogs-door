@@ -7,10 +7,10 @@ import (
 )
 
 type BarkRecognizer struct {
-	door dogdoor.DogDoor
+	Door *dogdoor.DogDoor
 }
 
 func (br *BarkRecognizer) Recognize(bark string) {
 	fmt.Println("BarkRecognizer: detect ->'", bark, "'")
-	br.door.Open()
+	br.Door.Open()
 }
