@@ -16,11 +16,16 @@ func TestMain(t *testing.T) {
 	newBark := "woof"
 	recognizer.Recognize(newBark)
 
-	fmt.Println("Fido goes out")
+	fmt.Println("Fido went out")
+
+	if door.IsOpen() {
+		t.Error("door still opened")
+	}
+
 	fmt.Println("Fido finished doing something")
 
 	fmt.Println("Fido starts to bark:")
 	recognizer.Recognize(newBark)
 
-	fmt.Println("Fido gets back to the inside")
+	fmt.Println("Fido got back to the inside")
 }

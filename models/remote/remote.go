@@ -1,12 +1,17 @@
 package remote
 
-import "github.com/Rindrics/dogs-door/models/dogdoor"
+import (
+	"fmt"
+
+	"github.com/Rindrics/dogs-door/models/dogdoor"
+)
 
 type Remote struct {
 	door dogdoor.DogDoor
 }
 
 func (r *Remote) PressButton() {
+	fmt.Println("remote controller button is pressed")
 	if r.door.IsOpen() {
 		r.door.Close()
 	} else {
