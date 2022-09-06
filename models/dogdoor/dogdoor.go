@@ -9,16 +9,17 @@ type DogDoor struct {
 	open bool
 }
 
-func (dd *DogDoor) Open() {
-	fmt.Println("dog door opens")
+func (dd *DogDoor) Open(done chan bool) {
+	fmt.Println("  dog door opens")
 	dd.open = true
 	time.Sleep(3 * time.Second)
-	dd.Close()
+	dd.Close(done)
 }
 
-func (dd *DogDoor) Close() {
-	fmt.Println("dog door closes")
+func (dd *DogDoor) Close(done chan bool) {
+	fmt.Println("  dog door closes")
 	dd.open = false
+	done <- true
 }
 
 func (dd *DogDoor) IsOpen() bool {
