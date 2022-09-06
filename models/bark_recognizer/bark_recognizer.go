@@ -11,6 +11,10 @@ type BarkRecognizer struct {
 }
 
 func (br *BarkRecognizer) Recognize(bark string) {
-	fmt.Println("BarkRecognizer: detect ->'", bark, "'")
-	br.Door.Open()
+	if br.Door.GetAllowedBark() == bark {
+		fmt.Println("BarkRecognizer: detect ->'", bark, "'")
+		br.Door.Open()
+	} else {
+		fmt.Println("the bark is not allowed")
+	}
 }
