@@ -2,9 +2,11 @@ package main
 
 import (
 	"fmt"
+
 	"testing"
 
 	"github.com/Rindrics/dogs-door/models/bark_recognizer"
+
 	"github.com/Rindrics/dogs-door/models/dogdoor"
 )
 
@@ -14,6 +16,11 @@ func TestMain(t *testing.T) {
 
 	fmt.Println("Fido starts to bark:")
 	newBark := "woof"
+	door.SetAllowedBark(newBark)
+
+	if door.GetAllowedBark() != newBark {
+		t.Errorf("bark %v is not registered", newBark)
+	}
 	recognizer.Recognize(newBark)
 
 	fmt.Println("Fido went out")
