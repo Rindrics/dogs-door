@@ -1,0 +1,19 @@
+@startuml
+
+skinparam handwritten true
+allowmixing
+
+actor "Dog Owner" as Owner
+object Remote
+object DogDoor
+object BarkRecognizer
+object Bark
+actor "Owner's Dog" as OwnersDog
+
+Owner -> Remote
+Remote -> DogDoor
+DogDoor o- BarkRecognizer
+BarkRecognizer o- Bark
+Bark <- OwnersDog
+
+@enduml
