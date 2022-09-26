@@ -5,8 +5,8 @@ allowmixing
 
 actor "Dog Owner" as Owner
 object Remote
-object DogDoor
-object BarkRecognizer
+object "Dog Door" as DogDoor
+object "Bark Recognizer" as BarkRecognizer
 object Bark
 actor "Owner's Dog" as OwnersDog
 
