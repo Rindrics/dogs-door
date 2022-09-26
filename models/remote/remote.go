@@ -10,11 +10,11 @@ type Remote struct {
 	door dogdoor.DogDoor
 }
 
-func (r *Remote) PressButton() {
+func (r *Remote) PressButton(done chan bool) {
 	fmt.Println("remote controller button is pressed")
 	if r.door.IsOpen() {
-		r.door.Close()
+		r.door.Close(done)
 	} else {
-		r.door.Open()
+		r.door.Open(done)
 	}
 }

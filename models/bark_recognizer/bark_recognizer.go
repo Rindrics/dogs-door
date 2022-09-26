@@ -10,7 +10,7 @@ type BarkRecognizer struct {
 	Door *dogdoor.DogDoor
 }
 
-func (br *BarkRecognizer) Recognize(bark string) {
-	fmt.Println("BarkRecognizer: detect ->'", bark, "'")
-	br.Door.Open()
+func (br *BarkRecognizer) Recognize(bark string, done chan bool) {
+	fmt.Println("  BarkRecognizer: detect ->'", bark, "'")
+	go br.Door.Open(done)
 }
