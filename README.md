@@ -1,5 +1,6 @@
-# ricks-guitar-app
-Self learning log of Head First OOAD
+# Doug's Dog Doors
+
+Dog Door Project--self learning log of Head First OOAD
 
 ## Current Design
 
