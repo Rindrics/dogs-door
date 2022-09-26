@@ -7,7 +7,9 @@ actor "Dog Owner" as Owner
 object Remote
 object "Dog Door" as DogDoor
 object "Bark Recognizer" as BarkRecognizer
-object Bark
+object "Bark of Owner's Dog" as Bark
+actor "The Other Dogs" as OtherDogs
+object "Bark of the Other Dogs" as OtherBark
 actor "Owner's Dog" as OwnersDog
 
 Owner -> Remote
@@ -15,5 +17,6 @@ Remote -> DogDoor
 DogDoor o- BarkRecognizer
 BarkRecognizer o- Bark
 Bark <- OwnersDog
+OtherBark <- OtherDogs
 
 @enduml
