@@ -50,3 +50,43 @@ The dog door closes.
 
 **** Alternative course
 Five seconds passed before owner pressess the button: the dog door closes automatically.
+
+** Dogs
+
+#+begin_src plantuml :file diagram/dogs.png
+  @startuml
+
+  skinparam handwritten true
+
+  actor "Owner's Dog" as OwnersDog
+
+  OwnersDog - (Go out)
+  OwnersDog - (Come in)
+  OwnersDog - (Bark)
+
+  (Bark) ..> (Go out): <<precedes>>
+  (Bark) ...> (Come in): <<precedes>>
+
+  @enduml
+#+end_src
+
+#+RESULTS:
+[[file:diagram/dogs.png]]
+
+*** Go out
+
+**** Normal course
+The owner's dog starts to bark.
+By recognizing the bark of owner's dog, the bark recognizer opens the dog door.
+The owner's dog goes out through the dog door.
+
+*** Come in
+**** Normal course
+The owner's dog starts to bark.
+By recognizing the bark of owner's dog, the bark recognizer opens the dog door.
+The owner's dog come in through the dog door.
+
+**** Alternative course
+A dog that is not the owner's dog barked in front of dog door.
+Bark recognizer hears the bark, but discovers that the barker is not the owner's dog.
+The dog door keeps being closed.
